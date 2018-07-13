@@ -15,10 +15,20 @@
                 <Button Name="divide" Width="60">divide</Button>
                 <Button Name="multiply" Width="60">multiply</Button>
             </StackPanel>
-            <Label Height="28" Content="Number 1:" VerticalAlignment="Top"/>
-            <TextBox Name="number1" Height="15" Width="100" VerticalAlignment="Top"></TextBox>
-            <Label Height="28" Content="Number 2:" VerticalAlignment="Top"/>
-            <TextBox Name="number2" Height="15" Width="100" VerticalAlignment="Top"></TextBox>
+            <StackPanel>
+                <WrapPanel VerticalAlignment="Top" Height="20">
+                    <Label Height="28" Content="Number 1:" VerticalAlignment="Top"/>
+                    <TextBox Name="number1" Height="20" Width="100" VerticalAlignment="Top"></TextBox>
+                    <Label Height="28" Content="Number 2:" VerticalAlignment="Top"/>
+                    <TextBox Name="number2" Height="20" Width="100" VerticalAlignment="Top"></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Width="56" >Output:</Label>
+                    <TextBox Name="output" Width="100" Height="20"></TextBox>
+                </WrapPanel>
+                
+            </StackPanel>
+            
             
         </WrapPanel>
     </Grid>
