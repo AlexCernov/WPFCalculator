@@ -8,7 +8,7 @@ namespace WPFCalculator
         {
             return a + b;
         }
-        public static Complex Substract(Complex a, Complex b)
+        public static Complex Subtract(Complex a, Complex b)
         {
             return a - b;
         }
@@ -20,6 +20,6 @@ namespace WPFCalculator
         {
             return a / b;
         }
-        */
+        
     }
 }
