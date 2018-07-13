@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFCalculator.Model
 {
-    internal class Complex
+     public  class Complex
     {
         public double Real { get; set; }
         public double Img { get; set; }
