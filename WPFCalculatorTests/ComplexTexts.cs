@@ -63,5 +63,31 @@ namespace WPFCalculatorTests
             Assert.AreEqual(c.Real, 2);
             Assert.AreEqual(c.Img, 2);
         }
+
+        [TestMethod]
+        public void TestToComplex()
+        {
+            Complex a = Complex.ToComplex("3+7i");
+            Assert.AreEqual(a.Real, 3);
+            Assert.AreEqual(a.Img, 7);
+
+            a = Complex.ToComplex("3");
+            Assert.AreEqual(a.Real, 3);
+
+            a = Complex.ToComplex("-3");
+            Assert.AreEqual(a.Real, -3);
+
+            a = Complex.ToComplex("+3");
+            Assert.AreEqual(a.Real, 3);
+
+            a = Complex.ToComplex("3i");
+            Assert.AreEqual(a.Img, 3);
+
+            a = Complex.ToComplex("-3i");
+            Assert.AreEqual(a.Img, -3);
+
+            a = Complex.ToComplex("+3i");
+            Assert.AreEqual(a.Img, 3);
+        }
     }
 }
