@@ -4,7 +4,7 @@ namespace WPFCalculator
 {
    public static class Operations
     {
-        public static Complex Add (Complex a,Complex b)
+        public static Complex Add(Complex a, Complex b)
         {
             return a + b;
         }

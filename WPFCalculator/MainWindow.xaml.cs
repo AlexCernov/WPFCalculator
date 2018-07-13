@@ -10,6 +10,7 @@ namespace WPFCalculator
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
