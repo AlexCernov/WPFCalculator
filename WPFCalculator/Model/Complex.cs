@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
+
 
 namespace WPFCalculator.Model
 {
@@ -59,34 +54,31 @@ namespace WPFCalculator.Model
             var matcherA = patternA.Match(input);
             var matcherB = patternB.Match(input);
             var matcherC = patternC.Match(input);
-
             if (matcherA.Success)
             {
-
                 var real = double.Parse(matcherA.Groups[1].Value);
-                double imaginary;
-                if (matcherA.Groups[2].Value == "+")
-                    imaginary = 1;
-                else
-                    imaginary = double.Parse(matcherA.Groups[2].Value);
+                var imaginary = double.Parse(matcherA.Groups[2].Value);
                 return new Complex(real, imaginary);
             }
             else if (matcherB.Success)
             {
-                return new Number(real: double.Parse(matcherA.Groups[1].Value));
+                return new Number(real: double.Parse(matcherB.Groups[1].Value));
             }
             else if (matcherC.Success)
             {
-                if ((matcherA.Groups[1].Value) == "1")
-                    return new Complex(0, 1);
-                return new Complex(0, double.Parse(matcherA.Groups[1].Value));
+                return new Complex(0, double.Parse(matcherC.Groups[1].Value));
             }
-            //const string pattern = @"([-+]?(\d+\.?\d*|\d*\.?\d+)([Ee][-+]?[0-2]?\d{1,2})?[r]?|[-+]?((\d+\.?\d*|\d*\.?\d+)([Ee][-+]?[0-2]?\d{1,2})?)?[i]|[-+]?(\d+\.?\d*|\d*\.?\d+)([Ee][-+]?[0-2]?\d{1,2})?[r]?[-+]((\d+\.?\d*|\d*\.?\d+)([Ee][-+]?[0-2]?\d{1,2})?)?[i])";
-            //var regex = new Regex(pattern);
-
-            //var match = regex.Match(input);
-            //return new Complex(double.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture), double.Parse(match.Groups[2].Value, CultureInfo.InvariantCulture));
+            //it would be better to throw an exception or something
             return new Complex();
+        }
+
+        public override string ToString()
+        {
+            if (Real == 0)
+                return Img + "i";
+            if(Img>0)
+                return ""+Real +"+" +Img + "i";
+            return "" + Real + Img + "i";
         }
     }
 }

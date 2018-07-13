@@ -11,9 +11,9 @@
             
             <StackPanel HorizontalAlignment="Left" >
                 <Button Name="add" Width="60" Click="add_Click">add</Button>
-                <Button Name="subtract" Width="60">subtract</Button>
-                <Button Name="divide" Width="60">divide</Button>
-                <Button Name="multiply" Width="60">multiply</Button>
+                <Button Name="subtract" Width="60" Click="subtract_Click">subtract</Button>
+                <Button Name="divide" Width="60" Click="divide_Click">divide</Button>
+                <Button Name="multiply" Width="60" Click="multiply_Click">multiply</Button>
             </StackPanel>
             <StackPanel>
                 <WrapPanel VerticalAlignment="Top" Height="20">
