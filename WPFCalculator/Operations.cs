@@ -20,6 +20,6 @@ namespace WPFCalculator
         {
             return a / b;
         }
-        */
+        
     }
 }
