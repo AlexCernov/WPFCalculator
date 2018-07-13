@@ -42,6 +42,16 @@ namespace WPFCalculator.Tests
             //Assert.Fail();
         }
 
+        [TestMethod()]
+        public void TestDiv()
+        {
+            Complex a = new Complex(3, 3);
+            Complex b = new Complex(1, 0);
+            Assert.AreEqual(3, (a / b).Real);
+            Assert.AreEqual(3, (a / b).Img);
+            //Assert.Fail();
+        }
+
 
     }
 }
