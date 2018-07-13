@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WPFCalculator.Model;
 
 namespace WPFCalculator
 {
@@ -10,7 +11,6 @@ namespace WPFCalculator
         public MainWindow()
         {
             InitializeComponent();
-            
         }
     }
 }
