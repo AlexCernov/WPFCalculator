@@ -48,8 +48,6 @@ namespace WPFCalculator.Model
             // Ex: -3-2.0i
             Regex patternA = new Regex("([-]?[0-9]+\\.?[0-9]?)([-|+]+[0-9]+\\.?[0-9]?)[i$]+");
 
-            var match = regex.Match(input);
-            return new Complex(double.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture), double.Parse(match.Groups[2].Value, CultureInfo.InvariantCulture));
 
             // Matches ONLY real number.
             // Ex: 3.145
