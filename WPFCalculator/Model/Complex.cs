@@ -46,10 +46,7 @@ namespace WPFCalculator.Model
             var regex = new Regex(pattern);
             // Matches complex number with BOTH real AND imaginary parts.  
             // Ex: -3-2.0i
-            Regex patternA = new Regex("([-]?[0-9]+\\.?[0-9]?)([-|+]+[0-9]+\\.?[0-9]?)[i$]+");
-
-            var match = regex.Match(input);
-            return new Complex(double.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture), double.Parse(match.Groups[2].Value, CultureInfo.InvariantCulture));
+            Regex patternA = new Regex("([-]?[0-9]+\\.?[0-9]?)([-|+]+[0-9]?\\.?[0-9]?)[i$]+");
 
             // Matches ONLY real number.
             // Ex: 3.145
@@ -57,7 +54,7 @@ namespace WPFCalculator.Model
 
             // Matches ONLY imaginary number.
             // Ex: -10i
-            Regex patternC = new Regex("([-]?[0-9]+\\.?[0-9]?)[i$]");
+            Regex patternC = new Regex("([-]?[0-9]?\\.?[0-9]?)[i$]");
 
             var matcherA = patternA.Match(input);
             var matcherB = patternB.Match(input);
@@ -67,7 +64,11 @@ namespace WPFCalculator.Model
             {
 
                 var real = double.Parse(matcherA.Groups[1].Value);
-                var imaginary = double.Parse(matcherA.Groups[2].Value);
+                double imaginary;
+                if (matcherA.Groups[2].Value == "+")
+                    imaginary = 1;
+                else
+                    imaginary = double.Parse(matcherA.Groups[2].Value);
                 return new Complex(real, imaginary);
             }
             else if (matcherB.Success)
@@ -76,7 +77,9 @@ namespace WPFCalculator.Model
             }
             else if (matcherC.Success)
             {
-                return new Complex(0, double.Parse(matcherA.Groups[2].Value));
+                if ((matcherA.Groups[1].Value) == "1")
+                    return new Complex(0, 1);
+                return new Complex(0, double.Parse(matcherA.Groups[1].Value));
             }
             //const string pattern = @"([-+]?(\d+\.?\d*|\d*\.?\d+)([Ee][-+]?[0-2]?\d{1,2})?[r]?|[-+]?((\d+\.?\d*|\d*\.?\d+)([Ee][-+]?[0-2]?\d{1,2})?)?[i]|[-+]?(\d+\.?\d*|\d*\.?\d+)([Ee][-+]?[0-2]?\d{1,2})?[r]?[-+]((\d+\.?\d*|\d*\.?\d+)([Ee][-+]?[0-2]?\d{1,2})?)?[i])";
             //var regex = new Regex(pattern);

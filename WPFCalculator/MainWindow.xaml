@@ -10,7 +10,7 @@
         <WrapPanel>
             
             <StackPanel HorizontalAlignment="Left" >
-                <Button Name="add" Width="60">add</Button>
+                <Button Name="add" Width="60" Click="add_Click">add</Button>
                 <Button Name="subtract" Width="60">subtract</Button>
                 <Button Name="divide" Width="60">divide</Button>
                 <Button Name="multiply" Width="60">multiply</Button>

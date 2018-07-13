@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using WPFCalculator.Model;
 
 namespace WPFCalculator
@@ -11,6 +12,11 @@ namespace WPFCalculator
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(Complex.ToComplex(number1.Text));
         }
     }
 }
