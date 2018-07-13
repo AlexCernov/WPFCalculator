@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WPFCalculator.Commands;
 using WPFCalculator.Model;
 
-namespace WPFCalculator.ViewModel
+namespace WPFCalculator.ViewModels
 {
     internal class ViewModel
     {
         
         public ViewModel()
         {
-
+            AddCommand = new AddCommandResult(this);
         }
         private string result;
         private string number1;
@@ -44,7 +46,19 @@ namespace WPFCalculator.ViewModel
         public string Number2
         {
             get { return number2; }
-            set { number1 = value; }
+            set { number2 = value; }
+        }
+
+        public ICommand AddCommand
+        {
+            get ; 
+            set ; 
+        }
+
+        public bool CanUpdate
+        {
+            get;
+            set;
         }
 
         public void Add()

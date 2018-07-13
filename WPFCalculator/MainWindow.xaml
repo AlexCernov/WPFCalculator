@@ -10,7 +10,7 @@
         <WrapPanel>
             
             <StackPanel HorizontalAlignment="Left" >
-                <Button Name="add" Width="60">add</Button>
+                <Button Name="add" Command="{Binding AddCommand}" Width="60">add</Button>
                 <Button Name="subtract" Width="60">subtract</Button>
                 <Button Name="divide" Width="60">divide</Button>
                 <Button Name="multiply" Width="60">multiply</Button>
@@ -18,13 +18,13 @@
             <StackPanel>
                 <WrapPanel VerticalAlignment="Top" Height="20">
                     <Label Height="28" Content="Number 1:" VerticalAlignment="Top"/>
-                    <TextBox Name="number1" Height="20" Width="100" VerticalAlignment="Top"></TextBox>
+                    <TextBox Name="number1" Height="20" Width="100" VerticalAlignment="Top" Text="{Binding Number1}"></TextBox>
                     <Label Height="28" Content="Number 2:" VerticalAlignment="Top"/>
-                    <TextBox Name="number2" Height="20" Width="100" VerticalAlignment="Top"></TextBox>
+                    <TextBox Name="number2" Height="20" Width="100" VerticalAlignment="Top" Text="{Binding Number2}"></TextBox>
                 </WrapPanel>
                 <WrapPanel>
                     <Label Width="56" >Output:</Label>
-                    <TextBox Name="output" Width="100" Height="20"></TextBox>
+                    <TextBox Name="output" Width="100" Height="20" Text="{Binding Result}"></TextBox>
                 </WrapPanel>
                 
             </StackPanel>
