@@ -21,19 +21,35 @@ namespace WPFCalculator.Model
 
         public static Complex operator+(Complex c1, Complex c2)
         {
-            return new Complex(c1.Real + c2.Real, c1.Img + c2.Img);
+            var real = c1.Real + c2.Real;
+            var img = c1.Img + c2.Img;
+            if (img==0)
+                return new Number(real);
+            return new Complex(real,img);
         }
         public static Complex operator-(Complex c1, Complex c2)
         {
-            return new Complex(c1.Real - c2.Real, c1.Img - c2.Img);
+            var real = c1.Real - c2.Real;
+            var img = c1.Img - c2.Img;
+            if (img == 0)
+                return new Number(real);
+            return new Complex(real, img);
         }
         public static Complex operator*(Complex c1, Complex c2)
         {
-            return new Complex(c1.Real * c2.Real - c1.Img * c2.Img, c1.Real * c2.Img +  c2.Real * c1.Img);
+            var real = c1.Real * c2.Real - c1.Img * c2.Img;
+            var img = c1.Real * c2.Img + c2.Real * c1.Img;
+            if (img == 0)
+                return new Number(real);
+            return new Complex(real, img);
         }
         public static Complex operator/(Complex c1, Complex c2)
         {
-            return new Complex((c1.Real * c2.Real + c1.Img * c2.Img)/(c2.Real*c2.Real + c2.Img*c2.Img),(c2.Real*c1.Img - c1.Real*c2.Img)/(c2.Real * c2.Real + c2.Img * c2.Img));
+            var real = (c1.Real * c2.Real + c1.Img * c2.Img) / (c2.Real * c2.Real + c2.Img * c2.Img);
+            var img = (c2.Real * c1.Img - c1.Real * c2.Img) / (c2.Real * c2.Real + c2.Img * c2.Img);
+            if (img == 0)
+                return new Number(real);
+            return new Complex(real, img);
         }
         public static Complex ToComplex(string input)
         {
