@@ -47,25 +47,25 @@ namespace WPFCalculator.ViewModel
             set { number1 = value; }
         }
 
-        void Add()
+        public void Add()
         {
             Complex complexNumber1 = Complex.ToComplex(Number1);
             Complex complexNumber2 = Complex.ToComplex(Number2);
             Result = "" + Operations.Add(complexNumber1, complexNumber2);
         }
-        void Subtract()
+        public void Subtract()
         {
             Complex complexNumber1 = Complex.ToComplex(Number1);
             Complex complexNumber2 = Complex.ToComplex(Number2);
             Result = "" + Operations.Subtract(complexNumber1, complexNumber2);
         }
-        void Multiply()
+        public void Multiply()
         {
             Complex complexNumber1 = Complex.ToComplex(Number1);
             Complex complexNumber2 = Complex.ToComplex(Number2);
             Result = "" + Operations.Multiply(complexNumber1, complexNumber2);
         }
-        void Divide()
+        public void Divide()
         {
             Complex complexNumber1 = Complex.ToComplex(Number1);
             Complex complexNumber2 = Complex.ToComplex(Number2);
