@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <StackPanel >
+            <Button x:Name="add" Width="60" Height="40" HorizontalAlignment="Left"/>
+        </StackPanel>
     </Grid>
 </Window>
