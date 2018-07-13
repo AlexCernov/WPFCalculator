@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
+using WPFCalculator.Model;
 
 namespace WPFCalculator
 {
-    class Operations
+    static class Operations
     {
-        public static Complex Add (Complex a,Complex b)
+        public static Complex Add(Complex a, Complex b)
         {
             return a + b;
         }
