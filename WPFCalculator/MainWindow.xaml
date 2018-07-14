@@ -5,31 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="125" Width="442">
+        Title="WPFCalculator" Height="273.317" Width="551.438"
+        ResizeMode="NoResize">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/math_background.jpg"/>
+        </Grid.Background>
         <WrapPanel>
-            
+
             <StackPanel HorizontalAlignment="Left" >
-                <Button Name="add" Command="{Binding AddCommand}" Width="60">add</Button>
-                <Button Name="subtract" Width="60">subtract</Button>
-                <Button Name="divide" Width="60">divide</Button>
-                <Button Name="multiply" Width="60">multiply</Button>
+                <Button Name="add" Command="{Binding AddCommand}" Width="120" Height="60">add</Button>
+                <Button Name="subtract" Command="{Binding SubtractCommand}" Width="120" Height="60">subtract</Button>
+                <Button Name="multiply" Command="{Binding MultiplyCommand}" Width="120" Height="60">multiply</Button>
+                <Button Name="divide" Command="{Binding DivideCommand}" Width="120" Height="60">divide</Button>
             </StackPanel>
-            <StackPanel>
-                <WrapPanel VerticalAlignment="Top" Height="20">
-                    <Label Height="28" Content="Number 1:" VerticalAlignment="Top"/>
-                    <TextBox Name="number1" Height="20" Width="100" VerticalAlignment="Top" Text="{Binding Number1}"></TextBox>
-                    <Label Height="28" Content="Number 2:" VerticalAlignment="Top"/>
-                    <TextBox Name="number2" Height="20" Width="100" VerticalAlignment="Top" Text="{Binding Number2}"></TextBox>
+            <Grid >
+
+                <WrapPanel VerticalAlignment="Top" Margin="0,60,-52,0" HorizontalAlignment="Left" Width="388">
+                    <Label FontSize="18" Foreground="LightGray" Height="32" Content="Number 1:" VerticalAlignment="Top"/>
+                    <TextBox x:Name="number1" Height="32" Width="100" VerticalAlignment="Top" Text="{Binding Number1}"/>
+                    <Label FontSize="18" Foreground="LightGray" Height="31" Content="Number 2:" VerticalAlignment="Top"/>
+                    <TextBox x:Name="number2" Height="32" Width="100" VerticalAlignment="Top" Text="{Binding Number2}"/>
                 </WrapPanel>
-                <WrapPanel>
-                    <Label Width="56" >Output:</Label>
-                    <TextBox Name="output" Width="100" Height="20" Text="{Binding Result}"></TextBox>
-                </WrapPanel>
-                
-            </StackPanel>
-            
-            
+                <Grid Margin="0,104,0,101">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="135*"/>
+                        <ColumnDefinition Width="206*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="18" Foreground="LightGray" Content="Output:" Margin="0,0,90,-7" />
+                    <TextBox x:Name="output" Height="32" Text="{Binding Result, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="93,0,142,0" Grid.ColumnSpan="2"/>
+                </Grid>
+
+            </Grid>
+
+
         </WrapPanel>
     </Grid>
 </Window>
