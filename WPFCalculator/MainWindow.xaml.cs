@@ -11,6 +11,7 @@ namespace WPFCalculator
     {
         public MainWindow()
         {
+
             InitializeComponent();
             DataContext = new ViewModel();
         }
