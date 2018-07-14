@@ -90,11 +90,44 @@ namespace WPFCalculator.Model
 
         public override string ToString()
         {
+            string number;
+
             if (Real == 0)
-                return Img + "i";
-            if(Img>0)
-                return ""+Real +"+" +Img + "i";
-            return "" + Real + Img + "i";
+            {
+                number = "";
+            }
+            else
+            {
+                number = "" + Real;
+            }
+
+            if (Img == -1)
+            {
+                number += "-i";
+            }
+            else if (Img == 1)
+            {
+                number += "i";
+            }
+            else
+            {
+                if(Img>0)
+                {
+                    if(Real!=0)
+                    {
+                        number += "+" + Img + "i";
+                    }
+                    else
+                    {
+                        number += "" + Img + "i";
+                    }
+                }
+                else
+                {
+                    number += "" + Img + "i";
+                }
+            }
+            return number;
         }
     }
 }
