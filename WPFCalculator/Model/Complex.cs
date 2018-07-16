@@ -91,14 +91,19 @@ namespace WPFCalculator.Model
         public override string ToString()
         {
             string number;
-
+            string realStr = Real.ToString();
+            string imgStr = Img.ToString();
+            if (realStr.Length>6)
+                realStr = Real.ToString().Substring(0, 5);
+            if (imgStr.Length > 6)
+                 imgStr = Img.ToString().Substring(0, 5);
             if (Real == 0)
             {
                 number = "";
             }
             else
             {
-                number = "" + Real;
+                number = "" + realStr;
             }
 
             if (Img == -1)
@@ -115,16 +120,16 @@ namespace WPFCalculator.Model
                 {
                     if(Real!=0)
                     {
-                        number += "+" + Img + "i";
+                        number += "+" + imgStr + "i";
                     }
                     else
                     {
-                        number += "" + Img + "i";
+                        number += "" + imgStr + "i";
                     }
                 }
                 else
                 {
-                    number += "" + Img + "i";
+                    number += "" + imgStr + "i";
                 }
             }
             return number;

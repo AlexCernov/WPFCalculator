@@ -9,7 +9,11 @@ namespace WPFCalculator.Model
 
         public override string ToString()
         {
-            return "" + Real;
+            string realStr = Real.ToString();          
+            if (realStr.Length > 6)
+                realStr = Real.ToString().Substring(0, 5);
+
+            return "" + realStr;
         }
     }
 }
